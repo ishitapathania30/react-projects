@@ -10,6 +10,13 @@ function App() {
     setTask("");
   }
 
+  // EASY delete function
+  function deleteTask(index) {
+    const newTasks = [...tasks];
+    newTasks.splice(index, 1);
+    setTasks(newTasks);
+  }
+
   return (
     <div style={{ padding: "20px" }}>
       <h2>My To Do App</h2>
@@ -25,7 +32,10 @@ function App() {
 
       <ul>
         {tasks.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            {item}
+            <button onClick={() => deleteTask(index)}>Delete</button>
+          </li>
         ))}
       </ul>
     </div>
@@ -33,6 +43,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
